@@ -1,6 +1,6 @@
-from http import client
 from services.embed import gemini_client
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from services.generate import generate_answer
 from services.intent import detect_intent
@@ -8,11 +8,18 @@ from services.search import medical_search
 from services.scrap import scrape_content
 from services.clean import clean_content
 from services.embed import embed_content
-# from services.retrieve import retrieve_relevant
-from services.generate import generate_answer
 from services.vector_store import store_embeddings, retrieve_from_pinecone
 
 app = FastAPI()
+
+# CORS — allow frontend dev server
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class QueryRequest(BaseModel):
     query: str
