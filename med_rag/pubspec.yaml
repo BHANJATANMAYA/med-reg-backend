@@ -1,0 +1,39 @@
+name: med_rag
+description: "AI-Powered Medical Evidence Assistant"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.0
+  google_fonts: ^6.2.1
+  url_launcher: ^6.2.5
+  flutter_native_splash: ^2.4.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: "^0.14.4"
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/medrag_logo.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/medrag_logo.png
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
